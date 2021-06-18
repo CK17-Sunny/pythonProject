@@ -14,8 +14,12 @@ class AD:
         if "https://stock.xueqiu.com/v5/stock/batch/quote.json?_t=" in flow.request.pretty_url:
             data = json.loads(flow.response.text)
             data["data"]["items"][0]["quote"]["name"] = "WuSunny_rewrite"
-            data["data"]["items"][0]["quote"]["current"] = "50.12"
-            data["data"]["items"][0]["quote"]["percent"] = "-1.09"
+            currents = [0, -10.22, 5000]
+            percents = [0.002, -0.99, 1000]
+            for i in range(len(percents)):
+                data["data"]["items"][i]["quote"]["percent"] = percents[i]
+            for x in range(len(currents)):
+                data["data"]["items"][x]["quote"]["current"] = currents[x]
             flow.response.text = json.dumps(data)
 
 
