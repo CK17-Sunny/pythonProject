@@ -1,8 +1,3 @@
-"""
-Basic skeleton of a mitmproxy addon.
-
-Run as follows: mitmproxy -s anatomy.py
-"""
 from mitmproxy import ctx
 
 
